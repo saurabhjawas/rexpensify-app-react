@@ -7,14 +7,17 @@ import { Provider } from 'react-redux'
 import AppRouter from './routers/AppRouter'
 
 import configureStore from './store/configureStore'
-import { addExpense, editExpense } from './actions/expenses'
+
+// import './playground/promises'
+// import { addExpense, editExpense } from './actions/expenses'
 // import { setTextFilter } from './actions/filters'
-import getVisibleExpenses from './selectors/expenses'
+// import getVisibleExpenses from './selectors/expenses'
 
 import 'normalize.css/normalize.css'
 import './styles/styles.scss'
 import 'react-dates/lib/css/_datepicker.css'
 
+import './firebase/firebase'
 
 const store = configureStore()
 

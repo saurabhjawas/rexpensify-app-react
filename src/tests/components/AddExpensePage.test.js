@@ -4,16 +4,16 @@ import { AddExpensePageForTest } from '../../components/AddExpensePage'
 
 import {expenses} from '../fixtures/expenses'
 
-let addExpenseSpy, pushSpy, expense, wrapper
+let startAddexpenseSpy, pushSpy, expense, wrapper
 
 beforeEach(() => {
-  addExpenseSpy = jest.fn()
+  startAddexpenseSpy = jest.fn()
   pushSpy = jest.fn()
 
   expense = expenses[0]
   wrapper = shallow(
     <AddExpensePageForTest 
-      addExpense={addExpenseSpy} 
+      startAddexpense={startAddexpenseSpy} 
       history={{
         push: pushSpy
       }}
@@ -28,7 +28,7 @@ test('should handle AddExpensePage onSubmit', () => {
 test('should handle AddExpensePage onSubmit', () => {
   wrapper.find('ExpenseForm').prop('onSubmit')(expense)
 
-  expect(addExpenseSpy).toHaveBeenLastCalledWith(expense)
+  expect(startAddexpenseSpy).toHaveBeenLastCalledWith(expense)
   expect(pushSpy).toHaveBeenLastCalledWith('/')
 
 })
