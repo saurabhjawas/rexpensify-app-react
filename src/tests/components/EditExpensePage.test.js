@@ -5,19 +5,19 @@ import { EditExpensePageForTest } from '../../components/EditExpensePage'
 
 import { expenses } from '../fixtures/expenses'
 
-let startRemoveExpenseSpy, pushSpy, editExpenseSpy, expense, wrapper
+let startRemoveExpenseSpy, pushSpy, startEditExpenseSpy, expense, wrapper
 
 beforeEach(() => {
   startRemoveExpenseSpy = jest.fn()
   pushSpy = jest.fn()
-  editExpenseSpy  = jest.fn()
+  startEditExpenseSpy  = jest.fn()
 
   expense =  expenses[1]
 
   wrapper = shallow(
     <EditExpensePageForTest
     startRemoveExpense={startRemoveExpenseSpy}
-    editExpense={editExpenseSpy}
+    startEditExpense={startEditExpenseSpy}
     history={{ push: pushSpy }}
     expense={expense}
     match={{
@@ -36,7 +36,7 @@ test('should render edit expense page', () => {
 test('should handle edit expense spy', () => {
   wrapper.find('ExpenseForm').prop('onSubmit')(expense)
 
-  expect(editExpenseSpy).toHaveBeenLastCalledWith({
+  expect(startEditExpenseSpy).toHaveBeenLastCalledWith({
     id: expense.id,
     updates: expense
   })
