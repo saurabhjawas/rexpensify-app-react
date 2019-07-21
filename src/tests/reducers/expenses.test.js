@@ -86,3 +86,12 @@ test('should NOT update the expense', () => {
 
   expect(state).toEqual(expenses)
 })
+
+test('should set expense', () => {  
+  const state = expensesReducer(expenses, {
+    type: 'SET_EXPENSES',
+    expenses: [expenses[1]]
+  })
+
+  expect(state).toEqual([expenses[1]])
+})
