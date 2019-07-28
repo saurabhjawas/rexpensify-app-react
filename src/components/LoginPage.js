@@ -4,10 +4,14 @@ import { startLogin } from '../actions/auth'
 
 
 const LoginPage = (props) => (
-  <div>
-    <button onClick={props.startLogin} >
-      Login
-    </button>
+  <div className="box-layout">
+    <div className="box-layout__box">
+      <h1 className="box-layout_title">Expensify</h1>
+      <p>It's time to get exenses under control</p>
+      <button className="button" onClick={props.startLogin} >
+        Login with Google
+      </button>
+    </div>
   </div>
 )
 
